@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="container.product.main" htmlTag="div" htmlClass="product main container" before="-">
+                <container name="container.product.details" htmlTag="div" htmlClass="container-product-details" before="-" />
+                <container name="container.product.gallery" htmlTag="div" htmlClass="container-product-gallery" />
+                <container name="container.product.info" htmlTag="div" htmlClass="container-product-info" />
+
+            </container>
+        </referenceContainer>
+
+        <!-- product details on left side -->
+        <move element="product.info.description.wrapper" destination="container.product.details" />
+
+        <!-- product gallery in center -->
+        <move element="product.info.media" destination="container.product.gallery" />
+
+        <!-- product info and configuration in right side -->
+        <move element="product.info.main" destination="container.product.info" />
+
+
+        <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
+        <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
+    </body>
+</page>
