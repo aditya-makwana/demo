@@ -3,13 +3,17 @@
 //  _____________________________________________
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .product.main.container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
+        display: grid;
+        align-items: start;
+        justify-items: start;
+        justify-content: start;
+        grid-template-columns: 20% 50% auto;
+        position: relative;
 
-        > div {
-            width: 30%;
-            flex-grow: 1;
+        > .container-product-info,
+        > .container-product-details {
+            position: sticky;
+            top:0;
         }
     }
 

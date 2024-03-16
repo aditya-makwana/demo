@@ -15,13 +15,14 @@
 
         <!-- product gallery in center -->
         <move element="product.info.media" destination="container.product.gallery" />
+        <move element="view.addto.wishlist" destination="container.product.gallery" before="-" />
+        <referenceBlock name="product.info.media.image" template="Magento_Catalog::product/view/gallery-custom.phtml" />
 
         <!-- product info and configuration in right side -->
         <move element="product.info.main" destination="container.product.info" />
 
-
-        <move element="page.main.title" destination="product.info.main" before="-"/>
-        <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
-        <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
+        <referenceBlock name="breadcrumbs" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
+        
     </body>
 </page>
