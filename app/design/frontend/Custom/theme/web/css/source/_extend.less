@@ -1,6 +1,7 @@
 @active__color: @color-black;
 @secondary_color: @color-white;
 @gallery-thumb-border-color-active: @active__color;
+
 @button-primary__background: @active__color;
 @button-primary__hover__background: @secondary_color;
 @button-primary__active__background: @secondary_color;
@@ -8,6 +9,15 @@
 @button-primary__active__color: @active__color;
 @button-primary__hover__border: 1px solid @active__color;
 @button-primary__active__border: 1px solid @active__color;
+
+@link__color: @active__color;
+@link__text-decoration: underline;
+
+a,
+.alink {
+    .lib-css(text-transform,uppercase);
+    .lib-css(transition, all 200ms ease-in-out);
+}
 
 & when (@media-common = true) {
     //  Using buttons mixins

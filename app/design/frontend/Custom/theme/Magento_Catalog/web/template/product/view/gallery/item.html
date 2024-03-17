@@ -1,0 +1,13 @@
+<% if (data.media == 'desktop') { %>
+    <img class="gallery-image"
+    <% if (data.index == 0) { %>
+        src='<%= data.src %>'
+    <% } %>
+    <% if (data.index != 0) { %>
+        data-src='<%= data.src %>'
+    <% } %>
+    alt='<%= data.alt %>' />
+<% } %>
+<% if (data.media == 'mobile') { %>
+    <img class="mobile gallery-image" src='<%= data.src %>' alt='<%= data.alt %>' />
+<% } %>
