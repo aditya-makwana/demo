@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header-wrapper">
+            <container name="logo-container" htmlTag="div" htmlClass="container-header-logo" before="-" />
+            <container name="menu-container" htmlTag="div" htmlClass="container-header-menu" after="logo-container" />
+            <container name="header-right-container" htmlTag="div" htmlClass="container-header-right" after="-">
+                <!-- <block class="Magento\Customer\Block\Account\Customer" name="customer-desktop" template="Magento_Theme::header/account/customer.phtml" after="-" /> -->
+
+            </container>
+        </referenceContainer>
+
+        <move element="logo" destination="logo-container" />
+
+        <move element="navigation.sections" destination="menu-container" />
+
+
+        <move element="top.search" destination="header-right-container" before="-" />
+        <move element="minicart" destination="header-right-container" />
+        <move element="customer" destination="header-right-container" after="-" />
+        <!-- <referenceBlock name="header.panel" remove="true" /> -->
+    </body>
+</page>

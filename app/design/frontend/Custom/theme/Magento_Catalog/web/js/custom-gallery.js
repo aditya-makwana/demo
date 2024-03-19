@@ -66,11 +66,14 @@ define([
         mobileImages: function() {
             console.log("in MOBILE media");
             this.renderImages('mobile', null);
-            $(this.element).slick();
+            $(this.element).slick({
+                arrows: false,
+                dots: true
+            });
         },
         desktopImages: function() {
             console.log("in DESKTOP media");
-            $(this.element).slick("unslick");
+            ($(this.element).hasClass('slick-slider')) && $(this.element).slick("unslick");
             let havingsmallimage = false;
             if(this.config.data.length%3 == 0) {
                 // console.log("can accomodate 2 small image");

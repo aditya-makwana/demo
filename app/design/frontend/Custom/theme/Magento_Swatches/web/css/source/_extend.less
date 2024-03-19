@@ -1,1 +1,29 @@
 @swatch-option__selected__outline: 1px solid @active__color;
+@swatch-option__background: @color-white;
+
+@attr-swatch-option__color: @active__color;
+@attr-swatch-option__selected__background: @active__color;
+@attr-swatch-option__selected__border: @border-width__base solid @active__color;
+@attr-swatch-option__selected__color: @color-white;
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true){
+    .swatch-option {
+        &.text {
+            border-radius: 3rem;
+            min-width: 3.5rem;
+        }
+        &.disabled:after {
+            background: @color-gray52;
+            width: 60%;
+            height: 1px;
+            .lib-css(transform, rotate(-30deg), @_prefix: 1);
+            position: absolute;
+            top: 45%;
+            left: 21%;
+        }
+    }
+
+} // end media common

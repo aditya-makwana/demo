@@ -1,14 +1,114 @@
 //
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+    .container-product-details {
+        #description {
+            div[data-content-type='tabs'] {
+                .tabs-navigation li.tab-header,
+                .tabs-content {
+                    border-width: 0;
+                }
+            }
+        }
+        div[data-content-type='tabs'] {
+            .tabs-navigation li.tab-header {
+                background: none;
+                padding: 0 1.5rem 0 0;
+                &.nth-last-child(1) {
+                    padding-right: 0;
+                }
+                a.tab-title {
+                    border: none;
+                    font-weight: normal;
+                    padding: 0;
+                    text-decoration: none;
+                }
+                &.ui-state-active {
+                    a.tab-title {
+                        font-weight: bold;
+                    }
+                }
+            }
+            .tabs-content {
+                margin-top: 1rem;
+            }
+        }
+    }
+    .container-product-gallery {
+        .action.towishlist {
+            span {
+                .lib-visually-hidden();
+            }
+            &:before {
+                .header-icon("heart.svg");
+                margin-right: 0;
+            }
+        }
+    }
+    .product-info-main {
+        .product.attribute.overview {
+            margin: 0 0 1rem 0;
+        }
+        .product-info-price {
+            display: block;
+            margin-bottom: 0;
+            border-bottom: 0;
+            padding: 0;
+            .price-box {
+                display: block;
+                padding-bottom: 0;
+                .price-container {
+                    .price {
+                        font-size: 1.4rem;
+                    }
+                    & > .price-label {
+                        .lib-visibility-hidden();
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+    .box-tocart {
+        .action.tocart {
+            width: 100%;
+            border-radius: 3rem;
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+        }
+    }
+} // end media common
+
+
+//
 //  Desktop, starts from ipad portrait (min 768)
 //  _____________________________________________
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .product-info-main {
+        .product-add-form {
+            padding-top: 0;
+        }
+        .page-title-wrapper h1 {
+            font-size: 4.8rem;
+            line-height: 4.6rem;
+            font-weight: 600;
+        }
+    }
+    .box-tocart {
+        .action.tocart {
+            width: 100%;
+        }
+    }
+
     .product.main.container {
         display: grid;
         align-items: start;
         justify-items: start;
         justify-content: start;
-        grid-template-columns: 20% 50% auto;
+        grid-template-columns: 25% 42% auto;
         position: relative;
+        gap: 4rem;
 
         > .container-product-info,
         > .container-product-details {
@@ -30,6 +130,30 @@
             }
         }
     }
+
+    .gallery-placeholder {
+        display: grid;
+        grid-template-rows: auto;
+        grid-gap: 1rem;
+
+        img:nth-child(3n+1) {
+          grid-column: 1 / span 2;
+        }
+
+        img:nth-child(3n+2) {
+            grid-column: 1 / span 1;
+        }
+        img:nth-child(3n) {
+          grid-column: 2 / span 1;
+        }
+        img:nth-child(3n+2):nth-last-child(1) {
+            grid-column: 1 / span 2;
+        }
+    }
+
+
+
+
     .page-layout-1column {
         .product-info-main,
         .product.media {
@@ -39,13 +163,13 @@
             float: none;
         }
     }
-
 } // end min 768
 
 //
 //  Mobile @screen__m, mobile only screen and (max-width: 767px)
 //  _____________________________________________
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
     .product.main.container {
         display: flex;
         flex-direction: column;
@@ -53,6 +177,36 @@
 
         .container-product-gallery {
             order: -1;
+        }
+        .container-product-info {
+            order: 1;
+        }
+        .container-product-details {
+            order: 2;
+        }
+
+        .action.towishlist {
+            float: right;
+            position: sticky;
+            top: 0;
+        }
+        .page-title-wrapper h1 {
+            font-size: 3.2rem;
+            line-height: 3rem;
+            font-weight: 600;
+        }
+        .slick-dots li {
+            button {
+                width: 1.6rem;
+                height: 2px;
+                border: none;
+                background: @color-gray76;
+            }
+            &.slick-active {
+                button {
+                    background: @active__color;
+                }
+            }
         }
     }
 } // end max 767
